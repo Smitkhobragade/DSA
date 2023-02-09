@@ -1,48 +1,62 @@
+//quick sort algo
 #include <stdio.h>
-#define cap 10
-
 void swap(int *a,int *b){
-	int t = *a;
+	int c = *a;
 	*a = *b;
-	*b = t;
+	*b = c;
 }
 
-int partition(int a[],int low,int high){
-	int p=low;
-    int pivot=a[low];
-    int i=low+1;
-    int j=high;
-    while(i>j){
-        while(i<=high && a[i]<=pivot)
-            i++;
-        while(a[j]>pivot)
-            j--;
-        if(i<j)
-            swap(&a[i],&a[j]);
-    }
-    swap(&a[p],&a[j]);
-    return j;
+int partition(int a[],int l,int h){
+	int p = l;
+	int pivot = a[l];
+	int i = l+ 1;
+	int j=h;
+	while(i<=j){
+		while(a[i]<=pivot)
+			i++;
+		while(a[j]>pivot)
+			j--;
+		if(i<j){
+			swap(&a[i],&a[j]);
+		}
+	}
+	if(i > j){
+		swap(&a[p],&a[j]);
+		return j;
+	}
+	
 }
 
-void quicksort(int a[],int low, int high){
-	if(low < high){
+void quick_sort(int a[], int low, int high){
+	if(low<high){
 		int q = partition(a,low,high);
-		quicksort(a,low,q-1);
-		quicksort(a,q+1,high);
+		quick_sort(a,low,q-1);
+		quick_sort(a,q+1,high);
+	
 	}
 }
+
 void display(int a[]){
-	printf("\n");
-	for(int i = 0; i < cap; i++){
-		printf(" %d ",a[i]);
-	}
+	for(int i=0;i<10;i++)
+		printf("%d  ",a[i]);
+	
+	printf("\n--------------------------------------\n");
 }
 int main(){
-	int arr[cap] = {4,1,3,6,2,8,9,0,5,7};
-	display(arr);
-	int low = 0, high = 9;
-	quicksort(arr,low,high);
-	display(arr);
+	int a[10] = {1,6,7,9,0,2,3,5,8,4};
+	printf("The Given Array is :\n");
+	display(a);
+	int low=0,high=9;
+	quick_sort(a,low,high);
+	printf("The Sorted array is :\n");
+	display(a);
 	
-	return 0 ;
+
 }
+
+
+
+
+
+
+
