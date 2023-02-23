@@ -1,6 +1,6 @@
 # DSA ( DATA STRUCTURES AND ALGORITHMS )
 
-This repository contains my implementation of various data structures and algorithms in different programming languages.
+This repository contains my implementation of various data structures and algorithms .
 These implementations are meant for educational purposes and are not necessarily the most efficient or optimal versions.
 
 - Note : This REPO only contatins implementation in C - Objective.
